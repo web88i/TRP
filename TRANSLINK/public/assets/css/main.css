@@ -1,0 +1,347 @@
+/* TRANSLINK - Main CSS */
+/* Core styles for the refactored TRANSLINK project */
+
+/* Font Face Declarations */
+@font-face {
+    font-family: 'Azeretmono';
+    src: url('/assets/fonts/AzeretMono-Light.woff2') format('woff2');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Manrope';
+    src: url('/assets/fonts/Manrope-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* CSS Variables - Theme System */
+:root {
+    /* Default theme colors */
+    --color-background: #050D15;
+    --color-text: #ffffff;
+    --color-brand: #050D15;
+    --color-accent: #41a5ff;
+    --color-highlight: #8affff;
+    
+    /* UI Components */
+    --color-menuBackground: rgba(5, 13, 21, 0.9);
+    --color-menuBorder: rgba(255, 255, 255, 0.1);
+    --color-menuText: #ffffff;
+    
+    /* Interactive elements */
+    --color-buttonBackground: #41a5ff;
+    --color-buttonHover: #3a94e6;
+    --color-buttonText: #ffffff;
+    
+    /* Form elements */
+    --color-inputBackground: rgba(255, 255, 255, 0.1);
+    --color-inputBorder: rgba(255, 255, 255, 0.2);
+    --color-inputText: #ffffff;
+    --color-inputPlaceholder: rgba(255, 255, 255, 0.6);
+    
+    /* Typography */
+    --font-primary: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-mono: 'Azeretmono', 'SF Mono', Monaco, 'Cascadia Code', monospace;
+}
+
+/* Base Styles */
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-primary);
+    background-color: var(--color-background);
+    color: var(--color-text);
+    overflow-x: hidden;
+}
+
+/* Application Container */
+.app {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+}
+
+/* WebGL Canvas */
+.canvas-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.webgl-canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+/* Navigation */
+.navigation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    padding: 1rem 2rem;
+    background: var(--color-menuBackground);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--color-menuBorder);
+}
+
+.navigation__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-text);
+    text-decoration: none;
+}
+
+.menu-toggle {
+    background: none;
+    border: none;
+    color: var(--color-text);
+    cursor: pointer;
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.menu-toggle__line {
+    width: 1.5rem;
+    height: 2px;
+    background: currentColor;
+    transition: all 0.3s ease;
+}
+
+/* Main Content */
+.main-content {
+    position: relative;
+    z-index: 10;
+    min-height: 100vh;
+    padding: 2rem;
+}
+
+/* Audio Controls */
+.audio-controls {
+    position: fixed;
+    bottom: 2rem;
+    left: 2rem;
+    z-index: 100;
+}
+
+.audio-toggle {
+    background: var(--color-buttonBackground);
+    border: none;
+    border-radius: 50%;
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-buttonText);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.audio-toggle:hover {
+    background: var(--color-buttonHover);
+    transform: scale(1.1);
+}
+
+.audio-toggle--enabled {
+    background: var(--color-accent);
+}
+
+/* Settings Access */
+.settings-access {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 100;
+}
+
+.settings-link {
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.settings-link:hover {
+    background: rgba(0, 0, 0, 0.8);
+    transform: scale(1.1);
+}
+
+/* Loader */
+.loader-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--color-background);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loader {
+    text-align: center;
+}
+
+.loader__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.loader__circles {
+    display: flex;
+    gap: 1rem;
+}
+
+.loader__circle {
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    background: var(--color-accent);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.loader__circle:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.loader__circle:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+.loader__text {
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 0.7;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navigation {
+        padding: 1rem;
+    }
+    
+    .main-content {
+        padding: 1rem;
+    }
+    
+    .audio-controls,
+    .settings-access {
+        bottom: 1rem;
+    }
+    
+    .audio-controls {
+        left: 1rem;
+    }
+    
+    .settings-access {
+        right: 1rem;
+    }
+}
+
+/* Utility Classes */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.invisible {
+    visibility: hidden;
+}
+
+/* Theme Transitions */
+* {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Focus Styles */
+*:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+}
+
+/* Loading States */
+.translink-loaded {
+    /* Styles applied when core systems are loaded */
+}
+
+.translink-ready {
+    /* Styles applied when application is fully ready */
+}
+
+.translink-fallback {
+    /* Styles for fallback mode when WebGL is not supported */
+}
+
+.translink-fallback .fallback-message {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    padding: 2rem;
+    background: rgba(0, 0, 0, 0.9);
+    border-radius: 1rem;
+    max-width: 90vw;
+}

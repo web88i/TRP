@@ -80,34 +80,34 @@ export class AudioManager extends EventEmitter {
     /**
      * Set up Three.js audio listener
      */
-    setupAudioListener() {
+                path: 'AETHER_2.5_powerloop-02.mp3'
         this.listener = new THREE.AudioListener();
         this.context = this.listener.context;
         
         // Set master volume
         this.listener.setMasterVolume(0); // Start muted until user interaction
         
-        this.logger.info('Audio listener created');
+                path: 'AETHER_2.5_UI_ask-aether-open-03.mp3'
     }
 
     /**
      * Load audio assets
-     */
+                path: 'AETHER_2.5_UI_menu-close-03.mp3'
     async loadAudioAssets() {
         this.logger.info('Loading audio assets...');
         
         const audioLoader = new THREE.AudioLoader();
-        
+                path: 'AETHER_2.5_UI_menu-open-03.mp3'
         const audioAssets = [
             // Background music
             { name: 'synthLoop', path: 'AETHER_2.5_synthloop-03.mp3', type: 'music' },
             { name: 'powerLoop', path: 'AETHER_2.5_powerloop-02.mp3', type: 'music' },
-            
-            // UI sounds
+                path: 'AETHER_2.5_UI_question-send-03.mp3'
+                path: 'AETHER_2.5_synthloop-03.mp3'
             { name: 'uiAskTranslinkOpen', path: 'AETHER_2.5_UI_ask-aether-open-03.mp3', type: 'sfx' },
             { name: 'uiMenuClose', path: 'AETHER_2.5_UI_menu-close-03.mp3', type: 'sfx' },
             { name: 'uiMenuOpen', path: 'AETHER_2.5_UI_menu-open-03.mp3', type: 'sfx' },
-            { name: 'uiQuestionSend', path: 'AETHER_2.5_UI_question-send-03.mp3', type: 'sfx' },
+                path: 'AETHER_2.5_UI_reply-03.mp3'
             { name: 'uiReply', path: 'AETHER_2.5_UI_reply-03.mp3', type: 'sfx' }
         ];
         
