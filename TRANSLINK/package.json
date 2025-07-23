@@ -16,7 +16,10 @@
     "test:unit": "jest tests/unit",
     "test:integration": "jest tests/integration",
     "test:performance": "jest tests/performance",
-    "analyze": "npm run build && npx vite-bundle-analyzer dist"
+    "analyze": "npm run build && npx vite-bundle-analyzer dist",
+    "audit:assets": "node scripts/verify-assets.js",
+    "cleanup:public": "./scripts/cleanup-public.sh",
+    "restore:assets": "./scripts/restore-assets.sh"
   },
   "dependencies": {
     "gsap": "^3.12.7",
