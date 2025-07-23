@@ -107,7 +107,7 @@ export class AudioManager extends EventEmitter {
             { name: 'uiAskTranslinkOpen', path: 'AETHER_2.5_UI_ask-aether-open-03.mp3', type: 'sfx' },
             { name: 'uiMenuClose', path: 'AETHER_2.5_UI_menu-close-03.mp3', type: 'sfx' },
             { name: 'uiMenuOpen', path: 'AETHER_2.5_UI_menu-open-03.mp3', type: 'sfx' },
-                path: 'AETHER_2.5_UI_reply-03.mp3'
+            { name: 'uiQuestionSend', path: 'AETHER_2.5_UI_question-send-03.mp3', type: 'sfx' },
             { name: 'uiReply', path: 'AETHER_2.5_UI_reply-03.mp3', type: 'sfx' }
         ];
         
